@@ -127,7 +127,7 @@ input:focus {
   box-shadow: 5px 5px 0px #212A3E;
 }
 .hyperlink-a-random{
-  background-color: #ec31ec;
+  background-color: #c273da;
   padding: 10px 0;
   width: 120px;
   font-size: 20px;
@@ -141,7 +141,7 @@ input:focus {
 }
 .hyperlink-a-random:hover{
   cursor: pointer;
-  background-color: #ff80d9;
+  background-color: #cf97e0;
   box-shadow: 5px 5px 0px #212A3E;
 }
 .wrong-border{
