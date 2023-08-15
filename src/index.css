@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Montserrat:wght@300;900&family=Nunito:wght@600&family=Pinyon+Script&family=Poppins:wght@100;300&family=Roboto:wght@500&family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Montserrat:wght@300;900&family=Nunito:wght@600&family=Pinyon+Script&family=Poppins:wght@100;300&family=Roboto:ital,wght@0,500;1,100&family=Ubuntu:wght@300&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -7,12 +8,14 @@
     text-decoration: none;
 }
 body{
-  background-color: #9BA4B5;
+  background-color: #b0bbcf;
 }
-.body-home{
-  background-color: #9BA4B5;
-  position: relative;
+input:focus {
+  outline: none;
 }
+
+/*---HOME PAGE---*/
+
 /*CONTACT*/
 .contacts{
   position: absolute;
@@ -60,10 +63,6 @@ body{
   border-radius: 15px;
   padding: 0 40px;
   color: #212A3E;
-}
-.searcher:focus {
-  outline: none; /* Remove the default focus outline */
-  /* You can also set other styles to indicate focus, like a box-shadow */
 }
 
 .fa-magnifying-glass{
@@ -131,4 +130,262 @@ color:#212A3E;
   width: 500px;
   margin-bottom: 20px;
   display: block;
+}
+
+/*---WORD PAGE----*/
+
+/*NAVBAR*/
+.nav{
+  display: flex;
+  width: 100%;
+  height: 70px;
+  justify-content: space-around;
+  background-color: #212A3E;
+  align-items: center;
+}
+.word-searcher{
+  background-color: transparent;
+  border: 2px solid #9BA4B5;
+  height: 30px;
+  width: 350px;
+  font-size: 18px;
+  border-radius: 15px;
+  padding: 0 40px;
+  color: rgb(207, 204, 204);
+}
+
+.word-title{
+  letter-spacing: 3px;
+  font-size: 34px;
+  color: #9BA4B5;
+}
+.word-fa-magnifying-glass{
+  position: relative;
+  left: 35px;
+  top: 2px;
+  scale: 1.3;
+  padding-right: 5px;
+  color: #9BA4B5;
+}
+.word-fa-xmark{
+  position: absolute;
+  right: 467px;
+  top: 26px;
+  scale: 1;
+  color: #9BA4B5;
+}
+.word-fa-magnifying-glass:hover, .word-fa-xmark:hover{
+  cursor: pointer;
+}
+.word-contacts{
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.word-contacts .fa-brands{
+  scale: 2;
+  color: #9BA4B5;
+  transition: all 300ms;
+}
+.word-contacts .fa-brands:hover{
+  scale: 2.5;
+  color: #d2d4d8;
+}
+/*MAIN*/
+.word-container{
+  width: 80%;
+  margin: 100px auto;
+}
+/*WORD AND SYLLABLES*/
+.word-and-syllables{
+  display: flex;
+  gap: 1rem;
+}
+.word{
+  letter-spacing: 2px;
+  font-size: 42px;
+  text-transform: capitalize; 
+}
+.syllables{
+  margin-top: 24px;
+  font-family: 'Roboto', italic;
+  font-style: italic;
+  font-weight: bolder;
+  font-size: 18px;
+}
+/*BOXES SIZES*/
+
+.full-box{
+  padding: 20px 20px;
+  background-color: white;
+  margin-top: 40px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 0 black;
+  position: relative;
+}
+/*--view more--*/
+.limited-box{
+  padding: 20px 20px;
+  background-color: white;
+  margin-top: 40px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 0 black;
+  max-height: 299px;
+  overflow: hidden;
+  position: relative;
+}
+.see-more-cont{
+  position: absolute;
+  /*border: 1px solid red;*/
+  bottom: 0px;
+  height: 40px; 
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items:start;
+  background-color: #FFFFFF;
+}
+.see-more-cont::before{
+  position: absolute;
+  /*border: 1px solid red;*/
+  bottom: 40px;
+  height: 30px; 
+  width: 100%;
+  content: "";
+  background: linear-gradient(#ffffff69,#ffffffb4, #FFFFFF);
+}
+.see-more-cont button{
+  border: none;
+  background-color: #9BA4B5;
+  font-size: 14px;
+  cursor: pointer;
+  color: #0e121a;
+  width: 120px;
+  height: 25px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  transition: all 300ms;
+}
+.see-more-cont button:hover{
+  background-color: #bbc7db;
+  scale: 1.1;
+}
+/*--view less--*/
+.see-less-cont{
+  background-color:transparent;
+  display: flex;
+  justify-content: center;
+}
+.see-less-cont button{
+  border: none;
+  background-color: #9BA4B5;
+  font-size: 14px;
+  cursor: pointer;
+  color: #0e121a;
+  width: 120px;
+  height: 25px;
+  border-radius: 15px;
+  transition: all 300ms;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.see-less-cont button:hover{
+  background-color: #bbc7db;
+  scale: 1.1;
+}
+.see-less-cont .angle-down{
+  transform: rotate(180deg);
+}
+
+/*--titles--*/
+.box-title{
+  font-size: 28px;
+  color: #ff9d0b;
+  padding-left: 5px;
+}
+/*--meanings--*/
+.item{
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 20px 20px;
+  gap: 20px;
+}
+/*----number---- */
+.number{
+  font-weight: 600;
+}
+/*----type of word----*/
+.type-of-word{
+  font-style: italic;
+  font-weight: bolder;
+  
+}
+.meaning{
+  display: inline-block;
+  letter-spacing: 2px;
+  font-weight: lighter;
+}
+.meaning:first-letter, .example:first-letter{
+  text-transform: uppercase;
+}
+/*---- complete meaning----*/
+.comp-meanings{
+  display: grid;
+  grid-template-columns: min-content  min-content  1fr;
+  gap: 8px;
+  width: 100%;
+}
+
+/*---- complete examples ----*/
+.comp-examples{
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  gap: 8px;
+  width: 100%;
+}
+
+/*-- examples -- */
+.example{
+  display: inline-block;
+  letter-spacing: 2px;
+  font-style: italic;
+  font-weight: 900;
+}
+/*SYNONYMS*/
+.syn-ant-rhy{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px 0;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+.syn-ant-rhy button{
+  border: none;
+  background-color: #ff9d0b;
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 15px;
+  color: #212A3E;
+  font-size: 16px;
+  box-shadow: 2px 2px 0 black;
+  text-transform: capitalize;
+  transition: all 500ms;
+}
+.syn-ant-rhy button:hover{
+  cursor: pointer;
+  scale: 1.2;
+}
+.no-entries{
+  font-style: italic;
+  font-weight: bolder;
+  font-size: 18px;
+}
+.wrong-word{
+  text-align: center;
+  font-size: 42px;
+  margin-top: 20px;
 }

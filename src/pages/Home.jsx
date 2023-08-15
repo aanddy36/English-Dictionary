@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { FaGithub, FaLinkedin, FaSearch, FaEraser } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Home = () => {
     const [word, setWord] = useState("")
     const [isValid, setIsValid] = useState(true)
+    const navigate = useNavigate()
 
     const handleChange = (e)=>{
         setWord(e.target.value)
@@ -14,12 +15,11 @@ export const Home = () => {
     const handleSubmit = (e)=>{
         e.preventDefault()
         if(!word){
-            setIsValid(false)
-            console.log("entro");
-            return
+            return setIsValid(false)
         }
         setIsValid(true)
         console.log(word);
+        navigate(`/${word.toLowerCase()}`)
 
     }
     return (

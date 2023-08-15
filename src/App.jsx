@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/:id' element={<Word/>}/>
+        <Route path='/:searchedWord' element={<Word/>}/>
       </Routes>
     </BrowserRouter>
   )
