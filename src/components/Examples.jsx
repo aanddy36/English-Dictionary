@@ -7,10 +7,10 @@ export const Examples = ({examples}) => {
     const [height, setHeight] = useState(divRef.current?.getBoundingClientRect().height)
     const [viewMore, setViewMore] = useState(false)
     useEffect(()=>{
-        //console.log(height)
         setHeight(divRef.current?.getBoundingClientRect().height)
         setViewMore(false)
       },[examples])
+
     if(examples.length === 0){
         return (
             <div className="full-box">
@@ -21,6 +21,7 @@ export const Examples = ({examples}) => {
             </div>
           )
     }
+    
   return (
     <div ref={divRef} className={viewMore ? 'full-box' : 'limited-box'}>
         <h1 className='box-title'>Examples</h1>

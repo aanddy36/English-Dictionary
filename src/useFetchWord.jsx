@@ -7,8 +7,10 @@ export const useFetchWord = (searchedWord) => {
     const [isLoading, setIsLoading] = useState(true)
     const [definitions, setDefinitions] = useState(null)
     const [examples, setExamples] = useState([])
-    //console.log("Word inside useFetch: " + searchedWord);
+    const [synonyms, setSynonyms] = useState([])
+    const [antonyms, setAntonyms] = useState([])
     const url = `https://wordsapiv1.p.rapidapi.com/words/${searchedWord}`;
+    const urlAnt = `https://wordsapiv1.p.rapidapi.com/words/${searchedWord}/antonyms`;
     const options = {
       method: 'GET',
       headers: {
@@ -21,7 +23,6 @@ export const useFetchWord = (searchedWord) => {
             try{
                 const response = await fetch(url, options);
                 const result = await response.json();
-                //console.log("Se llamo al API");
                 setResults(result);
                 setSyllables(result.syllables.list)
                 setDefinitions(result.results)
@@ -36,8 +37,22 @@ export const useFetchWord = (searchedWord) => {
                     .filter(subArray => subArray.length > 0)
                     .flatMap(subArray => subArray)
                 })
+                setSynonyms(()=>{
+                    const newArray = result.results.map(word=>{
+                        if(word.synonyms){
+                            return [...word.synonyms]
+                        }
+                        return []
+                    })
+                    .filter(subArray => subArray.length > 0)
+                    .flatMap(subArray => subArray)
+
+                    return [...new Set(newArray)]
+                })
+                const responseAnt = await fetch(urlAnt, options);
+                const resultAnt = await responseAnt.json();
+                setAntonyms(resultAnt.antonyms);                
             } catch(err){
-                console.log("HUBO UN ERROR");
                 setIsError(true)
             }
             setIsLoading(false)
@@ -46,5 +61,5 @@ export const useFetchWord = (searchedWord) => {
     },[searchedWord])
 
 
-  return {results, syllables, isError, isLoading, definitions, examples}
+  return {results, syllables, isError, isLoading, definitions, examples, synonyms, antonyms}
 }

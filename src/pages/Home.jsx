@@ -18,7 +18,6 @@ export const Home = () => {
             return setIsValid(false)
         }
         setIsValid(true)
-        console.log(word);
         navigate(`/${word.toLowerCase()}`)
 
     }
@@ -42,22 +41,4 @@ export const Home = () => {
             </form>
         </main>
     )
-
-  /*return (
-    <main className='body-home'>
-        <div className="contacts">
-            <Link to='https://github.com/aanddy36'><FaGithub className='fa-brands'/></Link>
-            <Link to='https://www.linkedin.com/in/delchiaroa/'><FaLinkedin className='fa-brands'/></Link>
-        </div>
-        <h1 className="title">Word<span style={{color:"#f39c1a", textShadow:"5px 0px 0 black"}}>row</span></h1>
-        <div className="search-bar">
-            <i className="fa-solid fa-magnifying-glass" style={{color:"#212a3e"}}></i>
-            <input className="searcher" type="text" placeholder="Desert" />
-            <i className="fa-solid fa-xmark" style={{color:"#212a3e"}}></i>
-        </div>
-        <span className="wrong-text">Please insert a word!</span>
-        <span className="text">Look for the definition, examples, synonyms and antonyms for any word of the English language! </span>
-        <div className="hyperlink-a"><a href="word.html">Search</a></div>
-    </main>
-  )*/
 }
