@@ -94,7 +94,6 @@ input:focus {
 }
 /*DESCRIPTION TEXT*/
 .text{
-  border: 1px solid;
   display: block;
   text-align: center;
   margin: 0 auto;
