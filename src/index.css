@@ -94,6 +94,7 @@ input:focus {
 }
 /*DESCRIPTION TEXT*/
 .text{
+  border: 1px solid;
   display: block;
   text-align: center;
   margin: 0 auto;
@@ -245,7 +246,7 @@ input:focus {
     transform: translateX(-50%);
   }
   .text{
-    padding: 0 50px;
+    width: 400px;
   }
 }
 /*MAIN*/
