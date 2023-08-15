@@ -96,6 +96,11 @@ input:focus {
 }
 
 /*SEARCH BUTTON*/
+.btns{
+  display: flex;
+  width: 300px;
+  margin: 0 auto;
+}
 .hyperlink-a{
   background-color: #f39c1a;
   border: none;
@@ -114,11 +119,22 @@ input:focus {
   background-color: #ffba54;
   box-shadow: 5px 5px 0px #212A3E;
 }
-.hyperlink-a a{
-  color:#212A3E;  
+.hyperlink-a-random{
+  background-color: #ec31ec;
+  padding: 10px 0;
+  width: 120px;
+  font-size: 20px;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 5px 5px 0px rgb(22, 25, 31);
+  margin: 50px auto;
+  text-align: center;
+  transition: all 300ms;
 }
-.hyperlink-a a:visited{
-color:#212A3E;  
+.hyperlink-a-random:hover{
+  cursor: pointer;
+  background-color: #ff80d9;
+  box-shadow: 5px 5px 0px #212A3E;
 }
 .wrong-border{
   border-color: rgb(192, 15, 15);
@@ -143,34 +159,41 @@ color:#212A3E;
   background-color: #212A3E;
   align-items: center;
 }
+.input-navbar-cont{
+  height: 30px;
+  width: 350px;
+  position: relative;
+}
 .word-searcher{
+  position: absolute;
+  bottom: 1px;
   background-color: transparent;
   border: 2px solid #9BA4B5;
-  height: 30px;
+  max-height: 30px;
   width: 350px;
   font-size: 18px;
   border-radius: 15px;
   padding: 0 40px;
   color: rgb(207, 204, 204);
 }
-
 .word-title{
   letter-spacing: 3px;
   font-size: 34px;
   color: #9BA4B5;
 }
 .word-fa-magnifying-glass{
-  position: relative;
-  left: 35px;
-  top: 2px;
+  position: absolute;
+  left: 18px;
+  top: 8px;
   scale: 1.3;
   padding-right: 5px;
   color: #9BA4B5;
+  z-index: 1;
 }
 .word-fa-xmark{
   position: absolute;
-  right: 467px;
-  top: 26px;
+  right: 13px;
+  top: 8px;
   scale: 1;
   color: #9BA4B5;
 }
@@ -190,6 +213,32 @@ color:#212A3E;
 .word-contacts .fa-brands:hover{
   scale: 2.5;
   color: #d2d4d8;
+}
+@media(max-width: 650px){
+  .nav{
+    height: 140px;
+    padding: 0;
+    position: relative;
+  }
+  .word-title{
+    position: absolute;
+    top: 20px;
+    left: 7%;
+  }
+  .word-contacts{
+    position: absolute;
+    top: 30px;
+    right: 10%;
+  }
+  .input-navbar-cont{
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+  }
+  .text{
+    padding: 0 30px;
+  }
 }
 /*MAIN*/
 .word-container{
@@ -234,6 +283,11 @@ color:#212A3E;
   overflow: hidden;
   position: relative;
 }
+@media (max-width: 530px) {
+  .limited-box{
+    max-height: 320px;
+  }
+}
 .see-more-cont{
   position: absolute;
   /*border: 1px solid red;*/
@@ -252,7 +306,7 @@ color:#212A3E;
   height: 30px; 
   width: 100%;
   content: "";
-  background: linear-gradient(#ffffff69,#ffffffb4, #FFFFFF);
+  background: linear-gradient(#ffffff00,#ffffff69,#ffffffb4, #FFFFFF);
 }
 .see-more-cont button{
   border: none;

@@ -21,6 +21,27 @@ export const Home = () => {
         navigate(`/${word.toLowerCase()}`)
 
     }
+    
+    const handleRandom = ()=>{
+        const randomWord = async ()=>{
+            let result = {}
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': '3fe9412164msh68fa0a54b638e9ep164706jsn96596cfc6b69',
+                    'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
+                }
+            } 
+            while(!result.results){
+                const response = await fetch('https://wordsapiv1.p.rapidapi.com/words/?random=true', options);
+                result = await response.json();
+                console.log(result);
+            }
+            navigate(`/${result.word}`)         
+        }
+        randomWord()
+    }
+
     return (
         <main>
             <div className="contacts">
@@ -37,7 +58,10 @@ export const Home = () => {
                 </div>
                 {!isValid && <span className="wrong-text">Please insert a word!</span>}
                 <span className="text">Look for the definition, examples, synonyms and antonyms for any word of the English language! </span>
-                <button type='submit' className='hyperlink-a'>Search</button>
+                <div className='btns'>
+                    <button type='submit' className='hyperlink-a'>Search</button>
+                    <button type='button' className='hyperlink-a-random' onClick={handleRandom}>Random</button>
+                </div>
             </form>
         </main>
     )

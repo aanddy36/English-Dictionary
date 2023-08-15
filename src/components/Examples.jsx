@@ -11,7 +11,7 @@ export const Examples = ({examples}) => {
         setViewMore(false)
       },[examples])
 
-    if(examples.length === 0){
+    if(!examples || examples?.length === 0){
         return (
             <div className="full-box">
                 <h1 className='box-title'>Examples</h1>
@@ -26,7 +26,7 @@ export const Examples = ({examples}) => {
     <div ref={divRef} className={viewMore ? 'full-box' : 'limited-box'}>
         <h1 className='box-title'>Examples</h1>
         <div className="item">
-            {examples.map((word, index)=>{
+            {examples?.map((word, index)=>{
                 return <p key={nanoid()} className='comp-examples'>
                     <span className='number'>{`${index+1}.`}</span>
                     <span className='example'>{`"${word}."`}</span>

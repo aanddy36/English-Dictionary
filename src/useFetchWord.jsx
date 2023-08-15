@@ -9,8 +9,9 @@ export const useFetchWord = (searchedWord) => {
     const [examples, setExamples] = useState([])
     const [synonyms, setSynonyms] = useState([])
     const [antonyms, setAntonyms] = useState([])
-    const url = `https://wordsapiv1.p.rapidapi.com/words/${searchedWord}`;
-    const urlAnt = `https://wordsapiv1.p.rapidapi.com/words/${searchedWord}/antonyms`;
+
+    const url = `https://wordsapiv1.p.rapidapi.com/words/${searchedWord.replaceAll(" ", "%20")}`;
+    const urlAnt = `https://wordsapiv1.p.rapidapi.com/words/${searchedWord.replaceAll(" ", "%20")}/antonyms`;
     const options = {
       method: 'GET',
       headers: {
@@ -22,13 +23,19 @@ export const useFetchWord = (searchedWord) => {
         const definitionWord = async ()=>{
             try{
                 const response = await fetch(url, options);
+                if(!response.ok){
+                    console.log("hola");
+                    setIsError(true)
+                    setIsLoading(false)
+                    return
+                }
                 const result = await response.json();
                 setResults(result);
-                setSyllables(result.syllables.list)
+                setSyllables(result.syllables?.list)
                 setDefinitions(result.results)
                 setIsError(false)
                 setExamples(()=>{
-                    return result.results.map(word => {
+                    return result.results?.map(word => {
                         if(word.examples){
                             return [...word.examples]
                         }
@@ -38,7 +45,7 @@ export const useFetchWord = (searchedWord) => {
                     .flatMap(subArray => subArray)
                 })
                 setSynonyms(()=>{
-                    const newArray = result.results.map(word=>{
+                    const newArray = result.results?.map(word=>{
                         if(word.synonyms){
                             return [...word.synonyms]
                         }
@@ -53,6 +60,8 @@ export const useFetchWord = (searchedWord) => {
                 const resultAnt = await responseAnt.json();
                 setAntonyms(resultAnt.antonyms);                
             } catch(err){
+                console.log(err);
+                console.log("err");
                 setIsError(true)
             }
             setIsLoading(false)
@@ -60,6 +69,6 @@ export const useFetchWord = (searchedWord) => {
         definitionWord()
     },[searchedWord])
 
-
+    //console.log(results);
   return {results, syllables, isError, isLoading, definitions, examples, synonyms, antonyms}
 }
