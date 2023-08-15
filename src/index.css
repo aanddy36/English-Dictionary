@@ -53,30 +53,36 @@ input:focus {
 .search-bar{
   margin: 20px auto;
   text-align: center;
+  position: relative;
+  width: 400px;
+  height: 35px;
 }
 .searcher{
   border: 2px solid rgb(33, 42, 62);
-  min-width: 400px;
   min-height: 35px;
+  width: 400px;
   font-size: 20px;
   background-color: transparent;
   border-radius: 15px;
   padding: 0 40px;
   color: #212A3E;
+  position: absolute;
+  left: 0;
 }
 
 .fa-magnifying-glass{
-  position: relative;
-  left: 35px;
+  position: absolute;
+  left: 20px;
   scale: 1.5;
-  top: 2px;
+  top: 10px;
   padding-right: 5px;
   color: #212A3E;
+  z-index: 1;
 }
 .fa-xmark{
-  position: relative;
-  right: 30px;
-  bottom: 1px;
+  position: absolute;
+  right: 17px;
+  top: 10px;
   scale: 1.25;
   color: #212A3E;
 }
@@ -113,6 +119,7 @@ input:focus {
   margin: 50px auto;
   text-align: center;
   transition: all 300ms;
+  color: #212A3E;
 }
 .hyperlink-a:hover{
   cursor: pointer;
@@ -129,6 +136,7 @@ input:focus {
   box-shadow: 5px 5px 0px rgb(22, 25, 31);
   margin: 50px auto;
   text-align: center;
+  color: #212A3E;
   transition: all 300ms;
 }
 .hyperlink-a-random:hover{
