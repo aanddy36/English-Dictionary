@@ -13,6 +13,7 @@ In the word page, you ***may not*** see all the fields (depending on the API dat
 - The only field always present would be *meanings*
 - You can visit the url for each synonym and antonym available
 - In case there are too many results for a  field, a *View More* button will limit the first-hand results.
+- You will also have a navbar in case you want to search another word
 
 ## Technologies Used
 - React
